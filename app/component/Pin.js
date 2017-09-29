@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, View } from 'react-native'
-import {Back, Heart, More, PinIcon, Share } from '../util/icons'
+import {PinIcon} from '../util/icons'
+
+import UtilityNavButton from './UtilityNavButton'
+import Button from './Button'
 
 export default class Pin extends Component{
     render(){
@@ -9,16 +12,14 @@ export default class Pin extends Component{
             <View style={styles.PinContainer}>
                 <View style={styles.PinHeader}>
                     <View style={styles.UtilityNav}>
-                        <Back/>
-                        <Heart/>
-                        <Share/>
-                        <More/>
+                        {/*we will make a button component which we will pass a prop that will lead to the name of the icon*/}
+                        <UtilityNavButton icon ="Back"/>
+                        <UtilityNavButton icon ="Heart"/>
+                        <UtilityNavButton icon ="Share"/>
+                        <UtilityNavButton icon ="More"/>
                     </View>
                     <View style = {styles.PinButtonContainer}>
-                        <View style = {styles.PinButton}>
-                            <PinIcon/>
-                            <Text style = {styles.PinButtonText}>Save</Text>
-                        </View>
+                        <Button red icon text="Save"/>
                     </View>
                 </View>
                 <View style = {styles.PinContent}>
@@ -32,9 +33,7 @@ export default class Pin extends Component{
                     </View>
                     {/*if we are going to reuse an element we should make a separate component so that its reusable.*/}
                     <View style = {styles.PinButtonContainer}>
-                        <View style = {[styles.PinButton, styles.UtilityButton]}>
-                            <Text style = {[styles.PinButtonText, styles.UtilityButtonText]}>Visit</Text>
-                        </View>
+                        <Button text ="Watch"/>
                     </View>
                 </View>
 
